@@ -6,7 +6,7 @@ import Weather from './components/weather';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Weather zipCode="55555"/>
+      <Weather zipCode="7777"/>
       <StatusBar style="auto" />
     </View>
   );
