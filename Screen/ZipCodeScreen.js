@@ -2,23 +2,22 @@ import React from 'react'
 import { FlatList, View, Text, StyleSheet ,ImageBackground} from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
-import { color } from 'react-native-reanimated';
 
 const availableZipItems = [
-    { place: 'ตรัง', code: '92000' ,pic:require('../bg.jpg')}, 
-    { place: 'กันตัง', code: '92110' ,pic:require('../bg.jpg')}, 
-    { place: 'นาโยง', code: '92170' ,pic:require('../bg.jpg')}, 
-    { place: 'ย่านตาขาว', code: '92140' ,pic:require('../bg.jpg')},
-    { place: 'รัษฎา', code: '92160' ,pic:require('../bg.jpg')},
-    { place: 'วังวิเศษ', code: '92220' ,pic:require('../bg.jpg')},
-    { place: 'สิเกา', code: '92150' ,pic:require('../bg.jpg')},
-    { place: 'ห้วยยอด', code: '92130' ,pic:require('../bg.jpg')},
-    { place: 'ปะเหลียน', code: '92140' ,pic:require('../bg.jpg')},
-    { place: 'หาดสำราญ', code: '92120' ,pic:require('../bg.jpg')}
+    { place: 'ตรัง', code: '92000' ,pic:require('../img/ตรัง.jpg')}, 
+    { place: 'กันตัง', code: '92110' ,pic:require('../img/กันตัง.jpeg')}, 
+    { place: 'นาโยง', code: '92170' ,pic:require('../img/นาโยง.jpg')}, 
+    { place: 'วังวิเศษ', code: '92220' ,pic:require('../img/วังวิเศษ.jpg')},
+    { place: 'สิเกา', code: '92150' ,pic:require('../img/สิเกา.jpg')},
+    { place: 'ห้วยยอด', code: '92130' ,pic:require('../img/ห้วยยอด.jpg')},
+    { place: 'ปะเหลียน', code: '92140' ,pic:require('../img/ปะเหลียน.jpg')},
+    { place: 'หาดสำราญ', code: '92120' ,pic:require('../img/หาดสำราญ.jpg')},
+    { place: 'รัษฎา', code: '92160' ,pic:require('../img/รัษฎา.jpg')},
+    { place: 'ย่านตาขาว', code: '92140' ,pic:require('../img/ย่านตาขาว.jpg')},
 ]
 
 const ZipItem = ({place, code, navigation,pic}) => (
-    <View style={styles.background}>
+    // <View style={styles.background}>
     <TouchableHighlight onPress={() => 
     {navigation.navigate('Weather', {zipCode: code})}}>
         <View style={styles.zipItem,styles.Text}>
@@ -28,18 +27,20 @@ const ZipItem = ({place, code, navigation,pic}) => (
             </ImageBackground>
         </View>
     </TouchableHighlight>
-    </View>
+    // </View>
 )
 
 export default function ZipCodeScreen(){ 
     const navigation = useNavigation()
-    return (  
+    return ( 
+        <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>  
             <FlatList
                 data={availableZipItems}
                 keyExtractor={item => item.code}
                 renderItem={({item}) => <ZipItem {...item} 
                 navigation={navigation} />}
-            />    
+            /> 
+        </ImageBackground>       
     )
 }
 
@@ -71,9 +72,10 @@ const styles = StyleSheet.create({
     //     height: '100%' 
     // },
     backgrounditem:{
-        height:100,
+        height:150,
         width:415,
         padding:55,
+        margin:10,
         justifyContent:'center',
         alignItems:'center',
     },

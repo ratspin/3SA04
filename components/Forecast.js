@@ -5,14 +5,17 @@ import { Text,View, StyleSheet } from 'react-native'
 export default function Forecast(props) {
     return (
         <View>
-        <View >
+        <View style={{padding: 35}}>
             <Text >"" </Text>
             <Text >"" </Text>
-            <Text style={styles.innerText2}>{props.main}</Text>
+            <Text >"" </Text>
+            <Text style={styles.innerText2}>Weather {props.main}</Text>
             <Text style={styles.innerText}>{props.description}</Text>
             <Text style={styles.innerText}>{props.temp} °C</Text>
+            
         </View>
-        <View >
+        <View  style={{padding: 25}}>
+            <Text >"" </Text>
             <Text >"" </Text>
             <Text >"" </Text>
             <Text style={styles.innerText3}>Wind speed : {props.wind} m/s</Text>
