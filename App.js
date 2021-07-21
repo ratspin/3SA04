@@ -10,7 +10,17 @@ export default function App() {
       return ( 
         <NavigationContainer >
           <Stack.Navigator screenOptions={{headerTitleAlign: 'center'}}>
-            <Stack.Screen name="Weather in Trang" component={ZipCodeScreen}/>
+            <Stack.Screen name="Weather in Trang" component={ZipCodeScreen}options={{
+          title: 'Weather in Trang',
+          headerStyle: {
+            color: 'white',
+            backgroundColor: '#FFDEAD',
+          },
+          headerTintColor: '#00000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}/>
             <Stack.Screen name="Weather" component={WeatherScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
